@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.my-container {
+  display: grid;
+  grid-template-areas: 
+  "head head head"
+  "content content content"
+  "foot foot foot"
+  ;
+}
+
+header { 
+  grid-area: head;
+  background-color: brown;
+}
+article {
+  width: 100%;
+  grid-area: content;
+  background-color: blueviolet;
+  padding-top: 10px;
+}
+aside {
+  grid-area: side;
+  background-color: yellowgreen;
+  width: 100%;
+  min-width: 20vw;
+}
+footer {
+  grid-area: foot;
+  background-color: palevioletred;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product {
+  width: 20%;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 10px;  
+}
+
+.product:hover {
+  transform: translateY(-5px);
+}
+
+.product div {
+  background-color: antiquewhite;
+  border-radius: 5px;
+
+}
+
+.product-img img {
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.load-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.load-more div {
+  height: 40px;
+  width: 90px;
+  text-align: center;
+  line-height: 40px;
+  border: 1px solid pink;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+
+
+
+
