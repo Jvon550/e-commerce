@@ -1,6 +1,13 @@
 import React from 'react'
 import './item.css'
-export default function Item({img, name, price}) {
+
+interface ItemProps {
+  img: string;
+  name: string;
+  price: string;
+}
+
+export default function Item({img, name, price}: ItemProps) {
     return (
         <div className="product">
           <div>

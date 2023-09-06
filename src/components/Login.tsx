@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import './login.css'
-export default function login() {
-    const [formData, setFormData] = useState({
+
+interface FormData {
+    email: string;
+    password: string;
+}
+
+const Login: React.FC = () => {
+    const [formData, setFormData] = useState<FormData>({
         email: '',
         password: '',
     });
 
-    const handleChange = (e) => {
+    const handleChange = (e: React.FormEvent<HTMLFormElement>): void => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
@@ -14,7 +20,7 @@ export default function login() {
         });
     };
     
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
         // You can add your login logic here, such as sending the data to a server.
         console.log(formData);
@@ -26,8 +32,9 @@ export default function login() {
             <form className="login-form" onSubmit={handleSubmit}>
             <h2>Login</h2>
             <div className="form-group">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="text">email</label>
                 <input
+                placeholder='email'
                 type="email"
                 id="email"
                 name="email"
@@ -37,8 +44,9 @@ export default function login() {
                 />
             </div>
             <div className="form-group">
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">password</label>
                 <input
+                placeholder='password'
                 type="password"
                 id="password"
                 name="password"
@@ -53,3 +61,6 @@ export default function login() {
     </div>
   )
 }
+
+
+export default Login;

@@ -1,0 +1,18 @@
+* {
+    color: black;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    display: inline-block;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.link-text{
+    text-decoration: none;
+}
+
