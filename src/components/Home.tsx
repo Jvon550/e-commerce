@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
+// import { Redirect } from 'react-router-dom';
+
 
 export default function Home() {
+
+
+
   return (
-    <div>
-      HOME PAGE
-    </div>
+    <>
+    <h1>home page</h1>
+    </>
   )
 }

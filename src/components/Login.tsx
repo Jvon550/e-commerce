@@ -1,64 +1,52 @@
 import React, { useState } from 'react';
-import './login.css'
+import { Button, Container, TextField, Typography } from '@mui/material';
 
-interface FormData {
-    email: string;
-    password: string;
-}
 
 const Login: React.FC = () => {
-    const [formData, setFormData] = useState<FormData>({
-        email: '',
-        password: '',
-    });
-
-    const handleChange = (e: React.FormEvent<HTMLFormElement>): void => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
-    };
-    
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
-        e.preventDefault();
-        // You can add your login logic here, such as sending the data to a server.
-        console.log(formData);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      // Handle form submission here
     };
 
   return (
-    <div className="login-container">
-        <div className="login-form-container">
-            <form className="login-form" onSubmit={handleSubmit}>
-            <h2>Login</h2>
-            <div className="form-group">
-                <label htmlFor="text">email</label>
-                <input
-                placeholder='email'
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                />
-            </div>
-            <div className="form-group">
-                <label htmlFor="password">password</label>
-                <input
-                placeholder='password'
-                type="password"
-                id="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-                />
-            </div>
-            <button type="submit">Login</button>
-            </form>
-        </div>
-    </div>
+    <Container maxWidth="sm">
+      <Typography variant="h4" align="center" gutterBottom>
+        Login
+      </Typography>
+    <form onSubmit={handleSubmit}>
+      <TextField
+        label="Email"
+        type="email"
+        fullWidth
+        margin="normal"
+        variant="outlined"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <TextField
+        label="Password"
+        type="password"
+        fullWidth
+        margin="normal"
+        variant="outlined"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <Button
+        type="submit"
+        variant="contained"
+        color="primary"
+        fullWidth
+        size="large"
+        style={{ marginTop: '1rem' }}
+      >
+        Login
+      </Button>
+    </form>
+  </Container>
   )
 }
 
