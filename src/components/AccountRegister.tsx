@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import "./accountRegister.css";
 import { TextField, Button, Container, Typography, Grid } from '@mui/material';
 
 const AccountRegister: React.FC = () => {

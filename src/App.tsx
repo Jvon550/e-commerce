@@ -2,6 +2,7 @@
 import './App.css'
 // import ItemImg from './assets/item img.jpg'
 import { BrowserRouter as Router, Route, Routes, Link, Outlet } from 'react-router-dom';
+import {RequireAuth} from 'react-auth-kit';
 // components
 // import Item from './components/Item'
 import Login from './components/Login';
@@ -46,8 +47,11 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Layout/>}>
-          <Route index element={<Home />} />
-          <Route path="login" element={<Login/>} />
+
+          <Route index element={<RequireAuth loginPath='login'>
+            <Home/>
+          </RequireAuth>} />
+          <Route path='login' element={<Login/>} />
           <Route path="signin" element={<AccountRegister/>} />
           <Route path="*" element={<NoPage/>} />
         </Route>

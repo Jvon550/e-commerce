@@ -1,14 +1,31 @@
 import React, { useState } from 'react';
 import { Button, Container, TextField, Typography } from '@mui/material';
-
+import axios from 'axios';
+import {useSignIn} from 'react-auth-kit';
+import { useNavigate } from 'react-router-dom';
 
 const Login: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const signIn = useSignIn()
+    const navigate = useNavigate();
   
-    const handleSubmit = (e) => {
+    const handleSubmit  = async (e) => {
       e.preventDefault();
-      // Handle form submission here
+      try {
+        const response = await axios.post('http://localhost:3000/accounts/login', {email: email, password: password});
+
+        signIn({
+            token: response.data.token, 
+            expiresIn: 3600,
+            tokenType: 'Bearer',
+            authState: {email: email},
+        })
+
+        navigate('/');
+      } catch (error) {
+        console.error('Error Authentication:', error);
+      }
     };
 
   return (
