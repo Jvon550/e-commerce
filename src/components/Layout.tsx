@@ -3,12 +3,9 @@ import { Outlet, Link } from "react-router-dom";
 import "./layout.css"
 export default function Layout() {
   return (
-    <div>
+    <React.Fragment>
         <nav>
         <ul>
-          <li>
-            <Link to="/" className='link-text' >Home |</Link>
-          </li>
           <li>
             <Link to="/login" className='link-text'>login |</Link>
           </li>
@@ -19,6 +16,6 @@ export default function Layout() {
       </nav>
 
       <Outlet />
-    </div>
+    </React.Fragment>
   )
 }
